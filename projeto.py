@@ -11,7 +11,7 @@ planilha_numeros.title = 'Numeros'
 planilha_numeros.sheet_properties.tabColor = '8334EB'
 
 # Criar planilha ByLearn
-planilha_by_learn = pasta.create_sheet('ByLearn')
+planilha_by_learn = pasta.create_sheet('Redes Sociais')
 planilha_by_learn.sheet_properties.tabColor = '34EBB7'
 
 
@@ -25,15 +25,14 @@ planilha_grafico = pasta.create_sheet('Gráficos')
 planilha_grafico.sheet_properties.tabColor = 'CF9AFC'
 
 
-
-
 # ----Planilha Numeros
 # Inserir valores de 2 em 2
 
-i=0
+i = 0
 for linha in range(5):
     for coluna in range(10):
-        celula = planilha_numeros.cell(row = linha + 1, column = coluna + 1, value = i)
+        celula = planilha_numeros.cell(
+            row=linha + 1, column=coluna + 1, value=i)
         i = i+2
 
 # ----Planilha ByLearn
@@ -44,10 +43,9 @@ planilha_by_learn['B1'] = 'Link'
 
 # Lista com os valores
 lista = [
-    ['Facebook', '@ByLearn'],
-    ['Insta', '@ByLearn'],
-    ['Youtube', '@ByLearn'],
-    ['Dojo(Blog)','dojo.bylearn.com.br']
+    ['Facebook', '@facebook'],
+    ['Insta', '@instagram'],
+    ['Youtube', '@youtube']
 ]
 
 # Insere linhas na planilha
@@ -58,7 +56,7 @@ for linha in lista:
 # ----Planilha Imagem
 
 imagem = Image('c://teste/test_image.jpg')
-planilha_imagem.add_image(imagem,'A1')
+planilha_imagem.add_image(imagem, 'A1')
 
 
 # ----Planilha Imagem
@@ -82,11 +80,13 @@ grafico.x_axis.title = 'Prova'
 
 # Configurar as referencias
 
-pontuacao = Reference(planilha_grafico, min_col = 2, max_col = 3, min_row = 1, max_row = 7)
-categoria_jogos = Reference(planilha_grafico, min_col = 1, max_col = 1, min_row = 2, max_row = 7)
+pontuacao = Reference(planilha_grafico, min_col=2,
+                      max_col=3, min_row=1, max_row=7)
+categoria_jogos = Reference(
+    planilha_grafico, min_col=1, max_col=1, min_row=2, max_row=7)
 
 # Configurar valores no grafico
-grafico.add_data(pontuacao,titles_from_data = True)
+grafico.add_data(pontuacao, titles_from_data=True)
 
 # Configurar categorias do grafico
 grafico.set_categories(categoria_jogos)
